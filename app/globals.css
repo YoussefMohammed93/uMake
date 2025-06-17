@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+body {
+  min-height: 200vh;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -116,8 +120,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-family:
+      var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 }
