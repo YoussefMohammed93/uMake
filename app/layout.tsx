@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import { Header } from "../components/header";
-import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono, Ovo } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -13,6 +13,12 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+});
+
+const ovo = Ovo({
+  subsets: ["latin"],
+  variable: "--font-ovo",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${plusJakartaSans.variable} ${geistMono.variable} ${ovo.variable} antialiased`}
+      >
         <Header />
         <main>{children}</main>
       </body>
