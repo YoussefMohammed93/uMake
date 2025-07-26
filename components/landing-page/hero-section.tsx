@@ -198,7 +198,7 @@ export function HeroSection() {
     <section ref={sectionRef} className="relative overflow-hidden sm:pt-10">
       <div
         ref={gradientRef}
-        className="fixed inset-0 -z-10 h-[110vh] opacity-30"
+        className="absolute inset-0 -z-10 min-h-[110vh] opacity-30"
         style={{
           background: `
             radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.3) 0%, transparent 50%),
