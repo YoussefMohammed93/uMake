@@ -236,7 +236,7 @@ export function HeroSection() {
               ref={subtitleRef}
               className="text-muted-foreground mx-auto max-w-xl text-base leading-relaxed md:text-lg"
             >
-              Bring your concepts to life with uMake's 3D modeling and design tools, turning your
+              Bring your concepts to life with uMake&apos;s 3D modeling and design tools, turning your
               vision into reality.
             </p>
           </div>

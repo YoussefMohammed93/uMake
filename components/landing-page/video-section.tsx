@@ -3,7 +3,7 @@
 import { gsap } from "gsap";
 import { Play, Pause } from "lucide-react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -19,45 +19,7 @@ export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      setupScrollAnimations();
-      setupVideoAnimations();
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [isVideoLoaded]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const updatePlayingState = () => {
-      setIsPlaying(!video.paused && !video.ended);
-    };
-
-    updatePlayingState();
-
-    video.addEventListener("play", updatePlayingState);
-    video.addEventListener("pause", updatePlayingState);
-    video.addEventListener("playing", updatePlayingState);
-    video.addEventListener("waiting", updatePlayingState);
-    video.addEventListener("seeking", updatePlayingState);
-    video.addEventListener("seeked", updatePlayingState);
-    video.addEventListener("ended", updatePlayingState);
-
-    return () => {
-      video.removeEventListener("play", updatePlayingState);
-      video.removeEventListener("pause", updatePlayingState);
-      video.removeEventListener("playing", updatePlayingState);
-      video.removeEventListener("waiting", updatePlayingState);
-      video.removeEventListener("seeking", updatePlayingState);
-      video.removeEventListener("seeked", updatePlayingState);
-      video.removeEventListener("ended", updatePlayingState);
-    };
-  }, [isVideoLoaded]);
-
-  const setupScrollAnimations = () => {
+  const setupScrollAnimations = useCallback(() => {
     if (!containerRef.current) return;
 
     gsap.fromTo(
@@ -117,9 +79,9 @@ export function VideoSection() {
         scrub: 1,
       },
     });
-  };
+  }, []);
 
-  const setupVideoAnimations = () => {
+  const setupVideoAnimations = useCallback(() => {
     if (!videoRef.current) return;
 
     gsap.fromTo(
@@ -171,7 +133,45 @@ export function VideoSection() {
         }
       },
     });
-  };
+  }, [isVideoLoaded]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      setupScrollAnimations();
+      setupVideoAnimations();
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [setupScrollAnimations, setupVideoAnimations]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const updatePlayingState = () => {
+      setIsPlaying(!video.paused && !video.ended);
+    };
+
+    updatePlayingState();
+
+    video.addEventListener("play", updatePlayingState);
+    video.addEventListener("pause", updatePlayingState);
+    video.addEventListener("playing", updatePlayingState);
+    video.addEventListener("waiting", updatePlayingState);
+    video.addEventListener("seeking", updatePlayingState);
+    video.addEventListener("seeked", updatePlayingState);
+    video.addEventListener("ended", updatePlayingState);
+
+    return () => {
+      video.removeEventListener("play", updatePlayingState);
+      video.removeEventListener("pause", updatePlayingState);
+      video.removeEventListener("playing", updatePlayingState);
+      video.removeEventListener("waiting", updatePlayingState);
+      video.removeEventListener("seeking", updatePlayingState);
+      video.removeEventListener("seeked", updatePlayingState);
+      video.removeEventListener("ended", updatePlayingState);
+    };
+  }, [isVideoLoaded]);
 
   const handlePlayPause = () => {
     if (!videoRef.current) return;
