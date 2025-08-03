@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import { Header } from "../components/header";
-import { Plus_Jakarta_Sans, Geist_Mono, Ovo } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono, Instrument_Serif } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
-const ovo = Ovo({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-ovo",
+  variable: "--font-instrument-serif",
   weight: "400",
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${geistMono.variable} ${ovo.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
       >
         <Header />
         <main>{children}</main>

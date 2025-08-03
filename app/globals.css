@@ -8,7 +8,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-family-ovo: var(--font-ovo), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-family-instrument-serif:
+    var(--font-instrument-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -124,7 +125,8 @@
 }
 
 @layer utilities {
-  .font-ovo {
-    font-family: var(--font-ovo), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  .font-instrument-serif {
+    font-family:
+      var(--font-instrument-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   }
 }

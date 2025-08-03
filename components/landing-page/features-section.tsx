@@ -174,9 +174,7 @@ export function FeaturesSection() {
                 className="flex flex-col items-center justify-center space-y-4 text-center"
                 style={{ minWidth: "200px", height: "160px" }}
               >
-                <div className="transform transition-transform duration-300 hover:scale-110">
-                  {feature.icon}
-                </div>
+                {feature.icon}
               </div>
             ))}
           </div>

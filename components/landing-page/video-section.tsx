@@ -214,7 +214,7 @@ export function VideoSection() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden">
-      <div className="container mx-auto px-4 pt-20 pb-10">
+      <div className="container mx-auto px-4 pt-20 pb-10 sm:px-5">
         <div ref={containerRef} className="relative mx-auto max-w-5xl">
           <div className="from-foreground via-foreground/80 to-foreground/60 relative overflow-hidden rounded-3xl bg-gradient-to-br shadow-2xl">
             <div className="relative z-10 aspect-square sm:aspect-video">

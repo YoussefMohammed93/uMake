@@ -209,7 +209,7 @@ export function HeroSection() {
         }}
       />
       <div className="flex h-screen items-center justify-center">
-        <div className="relative z-10 container mx-auto max-w-5xl px-5">
+        <div className="relative z-10 container mx-auto max-w-5xl px-4 sm:px-5">
           <div ref={announcementRef} className="mx-auto mb-12 w-full max-w-3xl">
             <Link
               href="/product"
@@ -225,7 +225,10 @@ export function HeroSection() {
             </Link>
           </div>
           <div className="mb-8 text-center">
-            <h1 ref={titleRef} className="font-ovo text-5xl leading-tight md:text-6xl lg:text-7xl">
+            <h1
+              ref={titleRef}
+              className="font-instrument-serif text-5xl leading-tight md:text-6xl lg:text-7xl"
+            >
               Create freely.
               <br />
               Design and ideate in 3D.
@@ -236,8 +239,8 @@ export function HeroSection() {
               ref={subtitleRef}
               className="text-muted-foreground mx-auto max-w-xl text-base leading-relaxed md:text-lg"
             >
-              Bring your concepts to life with uMake&apos;s 3D modeling and design tools, turning your
-              vision into reality.
+              Bring your concepts to life with uMake&apos;s 3D modeling and design tools, turning
+              your vision into reality.
             </p>
           </div>
           <div ref={buttonRef} className="flex justify-center">
